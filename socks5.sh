@@ -14,7 +14,7 @@ sudo apt install dante-server -y
 # Create the configuration file
 sudo bash -c 'cat <<EOF > /etc/danted.conf
 logoutput: /var/log/danted.log
-internal: ens4 port = 6868
+internal: ens4 port = 6869
 external: ens4
 method: username none
 user.privileged: root
@@ -33,16 +33,16 @@ EOF'
 sudo useradd --shell /usr/sbin/nologin $username
 echo "$username:$password" | sudo chpasswd
 
-# Check if UFW is active and open port 6868 if needed
+# Check if UFW is active and open port 6869 if needed
 if sudo ufw status | grep -q "Status: active"; then
-    sudo ufw allow 6868/tcp
+    sudo ufw allow 6869/tcp
 fi
 
-# Check if iptables is active and open port 6868 if needed
-if sudo iptables -L | grep -q "ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:6868"; then
-    echo "Port 6868 is already open in iptables."
+# Check if iptables is active and open port 6869 if needed
+if sudo iptables -L | grep -q "ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:6869"; then
+    echo "Port 6869 is already open in iptables."
 else
-    sudo iptables -A INPUT -p tcp --dport 6868 -j ACCEPT
+    sudo iptables -A INPUT -p tcp --dport 6869 -j ACCEPT
 fi
 
 # Restart dante-server
