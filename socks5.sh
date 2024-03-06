@@ -15,7 +15,7 @@ sudo apt install dante-server -y
 sudo bash -c 'cat <<EOF > /etc/danted.conf
 logoutput: /var/log/danted.log
 internal: 0.0.0.0 port = 1080
-external: eth0
+external: ens4
 method: username none
 user.privileged: root
 user.notprivileged: nobody
