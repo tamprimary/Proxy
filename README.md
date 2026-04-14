@@ -1,6 +1,7 @@
 wget https://raw.githubusercontent.com/tamprimary/Proxy/main/socks5.sh
 sudo bash socks5.sh
 
+wget --no-check-certificate 'https://raw.githubusercontent.com/tamprimary/Proxy/main/imagick.sh' -O imagick.sh && sudo sh imagick.sh
 
 wget https://raw.githubusercontent.com/tamprimary/Proxy/main/socks5_1080.sh
 sudo bash socks5_1080.sh
